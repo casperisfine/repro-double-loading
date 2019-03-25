@@ -1,24 +1,44 @@
-# README
+Relevant code in: https://github.com/casperisfine/repro-double-loading/commit/ac68e76e0a778e796c25f757b46861e6e4a4aabc
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+```ruby
+bin/rails runner 'p Hotel'
+Traceback (most recent call last):
+	37: from bin/rails:4:in `<main>'
+	36: from (ruby)/bundler/gems/rails-15ca8ad0c1e9/activesupport/lib/active_support/dependencies.rb:297:in `require'
+	35: from (ruby)/bundler/gems/rails-15ca8ad0c1e9/activesupport/lib/active_support/dependencies.rb:263:in `load_dependency'
+	34: from (ruby)/bundler/gems/rails-15ca8ad0c1e9/activesupport/lib/active_support/dependencies.rb:297:in `block in require'
+	33: from (ruby)/gems/bootsnap-1.4.1/lib/bootsnap/load_path_cache/core_ext/kernel_require.rb:29:in `require'
+	32: from (ruby)/gems/bootsnap-1.4.1/lib/bootsnap/load_path_cache/core_ext/kernel_require.rb:20:in `require_with_bootsnap_lfi'
+	31: from (ruby)/gems/bootsnap-1.4.1/lib/bootsnap/load_path_cache/loaded_features_index.rb:83:in `register'
+	30: from (ruby)/gems/bootsnap-1.4.1/lib/bootsnap/load_path_cache/core_ext/kernel_require.rb:21:in `block in require_with_bootsnap_lfi'
+	29: from (ruby)/gems/bootsnap-1.4.1/lib/bootsnap/load_path_cache/core_ext/kernel_require.rb:21:in `require'
+	28: from (ruby)/bundler/gems/rails-15ca8ad0c1e9/railties/lib/rails/commands.rb:18:in `<main>'
+	27: from (ruby)/bundler/gems/rails-15ca8ad0c1e9/railties/lib/rails/command.rb:46:in `invoke'
+	26: from (ruby)/bundler/gems/rails-15ca8ad0c1e9/railties/lib/rails/command/base.rb:65:in `perform'
+	25: from (ruby)/gems/thor-0.20.3/lib/thor.rb:387:in `dispatch'
+	24: from (ruby)/gems/thor-0.20.3/lib/thor/invocation.rb:126:in `invoke_command'
+	23: from (ruby)/gems/thor-0.20.3/lib/thor/command.rb:27:in `run'
+	22: from (ruby)/bundler/gems/rails-15ca8ad0c1e9/railties/lib/rails/commands/runner/runner_command.rb:45:in `perform'
+	21: from (ruby)/bundler/gems/rails-15ca8ad0c1e9/railties/lib/rails/commands/runner/runner_command.rb:45:in `eval'
+	20: from (ruby)/bundler/gems/rails-15ca8ad0c1e9/railties/lib/rails/commands/runner/runner_command.rb:45:in `<main>'
+	19: from (ruby)/bundler/gems/rails-15ca8ad0c1e9/activesupport/lib/active_support/dependencies.rb:297:in `require'
+	18: from (ruby)/bundler/gems/rails-15ca8ad0c1e9/activesupport/lib/active_support/dependencies.rb:263:in `load_dependency'
+	17: from (ruby)/bundler/gems/rails-15ca8ad0c1e9/activesupport/lib/active_support/dependencies.rb:297:in `block in require'
+	16: from (ruby)/gems/zeitwerk-1.4.2/lib/zeitwerk/kernel.rb:16:in `require'
+	15: from (ruby)/gems/bootsnap-1.4.1/lib/bootsnap/load_path_cache/core_ext/kernel_require.rb:29:in `require'
+	14: from (ruby)/gems/bootsnap-1.4.1/lib/bootsnap/load_path_cache/core_ext/kernel_require.rb:20:in `require_with_bootsnap_lfi'
+	13: from (ruby)/gems/bootsnap-1.4.1/lib/bootsnap/load_path_cache/loaded_features_index.rb:83:in `register'
+	12: from (ruby)/gems/bootsnap-1.4.1/lib/bootsnap/load_path_cache/core_ext/kernel_require.rb:21:in `block in require_with_bootsnap_lfi'
+	11: from (ruby)/gems/bootsnap-1.4.1/lib/bootsnap/load_path_cache/core_ext/kernel_require.rb:21:in `require'
+	10: from (root)/app/models/hotel.rb:1:in `<main>'
+	 9: from (ruby)/bundler/gems/rails-15ca8ad0c1e9/activesupport/lib/active_support/dependencies.rb:297:in `require'
+	 8: from (ruby)/bundler/gems/rails-15ca8ad0c1e9/activesupport/lib/active_support/dependencies.rb:263:in `load_dependency'
+	 7: from (ruby)/bundler/gems/rails-15ca8ad0c1e9/activesupport/lib/active_support/dependencies.rb:297:in `block in require'
+	 6: from (ruby)/gems/zeitwerk-1.4.2/lib/zeitwerk/kernel.rb:23:in `require'
+	 5: from (ruby)/gems/bootsnap-1.4.1/lib/bootsnap/load_path_cache/core_ext/kernel_require.rb:29:in `require'
+	 4: from (ruby)/gems/bootsnap-1.4.1/lib/bootsnap/load_path_cache/core_ext/kernel_require.rb:20:in `require_with_bootsnap_lfi'
+	 3: from (ruby)/gems/bootsnap-1.4.1/lib/bootsnap/load_path_cache/loaded_features_index.rb:83:in `register'
+	 2: from (ruby)/gems/bootsnap-1.4.1/lib/bootsnap/load_path_cache/core_ext/kernel_require.rb:21:in `block in require_with_bootsnap_lfi'
+	 1: from (ruby)/gems/bootsnap-1.4.1/lib/bootsnap/load_path_cache/core_ext/kernel_require.rb:21:in `require'
+(root)/app/models/pricing.rb:1:in `<main>': Pricing was already loaded (RuntimeError)
+```
