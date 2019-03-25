@@ -1,5 +1,5 @@
-raise "Hotel was already laoded" if defined? Hotel
+require_dependency 'pricing'
 
 class Hotel < ApplicationRecord
-  class_attribute
+  class_attribute :location
 end
